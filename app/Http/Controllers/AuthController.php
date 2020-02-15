@@ -290,6 +290,7 @@ class AuthController extends Controller
         }
 
     }
+
     private function isAuthorizedToResendCode($userId)
     {
         $verifyCodeModel    = new Verify_code();
