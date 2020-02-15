@@ -23,13 +23,6 @@ class Controller extends BaseController
         ];
         return response()->json($response, $resultCode,  [], JSON_UNESCAPED_UNICODE);
     }
-    public function sendError($resultCode, $errorMessages , $code = 404)
-    {
-        $response = [
-            'resultCode'    => $resultCode,
-            'message'       => $errorMessages
-        ];
-        return response()->json($response, $code, [], JSON_UNESCAPED_UNICODE);
-    }
+
 
 }
