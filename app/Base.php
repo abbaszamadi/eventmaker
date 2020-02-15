@@ -12,7 +12,16 @@ class Base
     {
         $fields     = isset($data['fields'])? $data['fields'] : "*";
         $filters    = isset($data['filters'])? $data['filters'] : array();
-        return DB::table($this->table)->where($filters)->select($fields);
+        return DB::table($this->table)->where($filters)->select($fields)->first();
+    }
+
+    public function all($data=array())
+    {
+        $fields     = isset($data['fields'])? $data['fields'] : "*";
+        $filters    = isset($data['filters'])? $data['filters'] : array();
+        $orderBy    = isset($data['orderBy'])? $data['orderBy'] : 'id desc';
+        return DB::table($this->table)->where($filters)->select($fields)
+            ->orderBy($orderBy)->get();
     }
 
     public function save($data)

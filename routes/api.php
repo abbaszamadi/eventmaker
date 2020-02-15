@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::group(['prefix' => 'auth',], function () {
     Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('verify', 'AuthController@verify');
+    Route::post('resend_verify_code', 'AuthController@resend_verify_code');
+
 });
