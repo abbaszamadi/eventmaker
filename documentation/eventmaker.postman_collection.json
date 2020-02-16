@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "016dec28-ab2b-4481-aead-0ec25cf06116",
+		"name": "eventmaker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://eventmaker.test/api/auth/verify",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "WGUitH9G22TN5YTzGpeIrVfCmSuui90LUvBCXWBfbCDunsUqK0joszF9TRne",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_token",
+						"value": "d1FpvnLUvD6CYX9CKOjxfUy9MteJ4vq75qKsibPTJ8xqX3YLIoZcX0VnA9H4",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "verifyCode",
+							"value": "993812",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "abbas.zamadi@yahoo.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/auth/verify",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"verify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/auth/resend_verify_code",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "WGUitH9G22TN5YTzGpeIrVfCmSuui90LUvBCXWBfbCDunsUqK0joszF9TRne",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abbass.zamadi@yahoo.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/auth/resend_verify_code",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"resend_verify_code"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abbas.zamadi@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abbas3@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "09018212064",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "abbas zamadi",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/events/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "CuXNS48SRqB4ghFPE1U5jluOWbAvVjGLkT3tHqt1PcPphXgZEVHjQKtZQsPr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "subject",
+							"value": "fasd",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "fasdf",
+							"type": "text"
+						},
+						{
+							"key": "invitedUsers",
+							"value": "[\"abbas2@yahoo.com\",\"09018212064\"]",
+							"type": "text"
+						},
+						{
+							"key": "eventTime",
+							"value": "1582841605",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/events/create",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"events",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/invitation/update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eiez5C5mEs67M7iQPgiiLLMrXChGWCPgZUXizuq7vbzVErEnxdlPbvVDh5ke",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "eventId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "presenceStatus",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/invitation/update",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"invitation",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/invitation/invited_users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "CuXNS48SRqB4ghFPE1U5jluOWbAvVjGLkT3tHqt1PcPphXgZEVHjQKtZQsPr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "eventId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/invitation/invited_users",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"invitation",
+						"invited_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/users/invited_events",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "CuXNS48SRqB4ghFPE1U5jluOWbAvVjGLkT3tHqt1PcPphXgZEVHjQKtZQsPr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://eventmaker.test/api/users/invited_events",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"users",
+						"invited_events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://eventmaker.test/api/users/user_events",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "CuXNS48SRqB4ghFPE1U5jluOWbAvVjGLkT3tHqt1PcPphXgZEVHjQKtZQsPr",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://eventmaker.test/api/users/user_events",
+					"protocol": "http",
+					"host": [
+						"eventmaker",
+						"test"
+					],
+					"path": [
+						"api",
+						"users",
+						"user_events"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

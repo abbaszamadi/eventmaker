@@ -89,7 +89,8 @@ class UsersController extends Controller
         {
             $response = array(
                 'resultCode'    => 200,
-                'message'       => 'عکس پروفایل با موفقیت ویرایش شد'
+                'message'       => 'عکس پروفایل با موفقیت ویرایش شد',
+                'data'          => array('avatar' => public_path($imagePath . $imageName))
             );
         }else{
             $response = array(
@@ -99,4 +100,5 @@ class UsersController extends Controller
         }
         return $this->sendResponse($response);
     }
+
 }
