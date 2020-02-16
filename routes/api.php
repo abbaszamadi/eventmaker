@@ -25,6 +25,7 @@ Route::group(['prefix' => 'auth'], function () {
 });
 
 Route::group(['prefix' => 'users'], function () {
+    Route::post('upload_avatar', 'UsersController@upload_avatar');
     Route::post('invited_events', 'UsersController@invited_events');
     Route::post('user_events', 'UsersController@user_events');
 });
