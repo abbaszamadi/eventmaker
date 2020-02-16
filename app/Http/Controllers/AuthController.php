@@ -20,7 +20,7 @@ class AuthController extends Controller
         $userModel       = new User();
         $validator = Validator::make($request->all(), [
             'email' => 'required|unique:users|max:255',
-            'phone' => 'required|unique:users|max:11',
+            'phone' => "required|unique:users|max:11",
             'name'  => 'max:255',
             'password' => 'required'
         ]);
@@ -296,7 +296,6 @@ class AuthController extends Controller
         $verifyCodeModel    = new Verify_code();
         $filters            = array(
             'userId'        => $userId,
-           // 'createdAt'     => array('>=', time() - 100)
         );
         $filters[] = array( 'createdAt', '>',  time() - 100 );
         $verifyCode = $verifyCodeModel->get(array('filters' => $filters));

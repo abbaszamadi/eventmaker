@@ -20,8 +20,8 @@ class Controller extends BaseController
             $token = $request->header('authorization');
             $token = str_replace('Bearer ', '', $token);
             $userModel = new User();
-            if ($token and is_string($token)) {
-                $user = $userModel->get(array('filters' => array('api_token' => $token)))->first();
+            if (isset($token) and is_string($token)) {
+                $user = $userModel->get(array('filters' => array('api_token' => $token)));
                 if ($user) {
                     if ($user->statusCode == 0) {
                         $response = array(
@@ -30,7 +30,7 @@ class Controller extends BaseController
                         );
                         return $this->sendResponse($response);
                     }
-                    $this->userId;
+                    $this->userId = $user->id;
                 }else{
                     $response = array(
                         'resultCode'    => 400,

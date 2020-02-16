@@ -28,6 +28,10 @@ class Base
     {
         return DB::table($this->table)->insertGetId($data);
     }
+    public function saveBatch($data)
+    {
+        return DB::table($this->table)->insert($data);
+    }
 
     public function update($data)
     {

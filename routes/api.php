@@ -22,5 +22,10 @@ Route::group(['prefix' => 'auth',], function () {
     Route::post('login', 'AuthController@login');
     Route::post('verify', 'AuthController@verify');
     Route::post('resend_verify_code', 'AuthController@resend_verify_code');
-
 });
+
+Route::group(['prefix' => 'events',], function () {
+    Route::post('create', 'EventController@create');
+});
+
+
