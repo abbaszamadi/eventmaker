@@ -29,3 +29,9 @@ Route::group(['prefix' => 'events',], function () {
 });
 
 
+Route::group(['prefix' => 'invitation',], function () {
+    Route::post('update', 'InvitationController@update');
+});
+
+
+
