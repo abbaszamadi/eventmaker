@@ -10,6 +10,53 @@ use Illuminate\Support\Facades\Validator;
 class InvitationController extends Controller
 {
 
+    public function invited_users(Request $request)
+    {
+        $this->authenticate($request);
+        $eventModel      = new Event();
+        $invitationModel = new Invitation();
+        $validator       = Validator::make($request->all(), [
+            'eventId'           => 'required',
+        ]);
+        if($validator->fails()){
+            $response = array(
+                'resultCode'    => 405,
+                'message'       => $validator->errors()
+            );
+            return $this->sendResponse( $response );
+        }
+        $eventId = $request->get('eventId');
+        $filters        = array('id' => $eventId);
+        $event          = $eventModel->get(array('filters' => $filters));
+        if ($event)
+        {
+            if ($event->userId == $this->userId)
+            {
+                $filters = array(
+                    'e.id'  => $eventId
+                );
+                $fields = array('u.id', 'u.name', 'u.email');
+                $invitedUsers = $invitationModel->allJoined(array('filters' => $filters, 'fields' => $fields));
+                $response = array(
+                    'resultCode'    => 200,
+                    'message'       => '',
+                    'data'          => array('invitedUsers' => $invitedUsers)
+                );
+            }else{
+                $response = array(
+                    'resultCode'    => 400,
+                    'message'       => 'اطلاعات ارسالی نامعتبر است'
+                );
+            }
+
+        }else{
+            $response = array(
+                'resultCode'    => 400,
+                'message'       => 'اطلاعات ارسالی نامعتبر است'
+            );
+        }
+        return $this->sendResponse($response);
+    }
 
     public function update(Request $request)
     {

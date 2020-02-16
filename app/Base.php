@@ -19,9 +19,7 @@ class Base
     {
         $fields     = isset($data['fields'])? $data['fields'] : "*";
         $filters    = isset($data['filters'])? $data['filters'] : array();
-        $orderBy    = isset($data['orderBy'])? $data['orderBy'] : 'id desc';
-        return DB::table($this->table)->where($filters)->select($fields)
-            ->orderBy($orderBy)->get();
+        return DB::table($this->table)->where($filters)->select($fields)->get();
     }
 
     public function save($data)

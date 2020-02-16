@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Sanitization;
 use App\Mail\SendMail;
 use App\User;
 use App\Verify_code;
@@ -35,6 +36,16 @@ class AuthController extends Controller
         $phone      = $request->get('phone');
         $name       = $request->get('name');
         $token      = Str::random(60);
+        if (Sanitization::isValidPhone($phone))
+        {
+            $phone = Sanitization::sanitizePhone($phone);
+        }else{
+            return $this->sendResponse(array(
+                'result'    => false,
+                'message'   => 'شماره تلفن نامعتبر است'
+            ));
+        }
+
         $userData   = array(
             'phone' => $phone,
             'email' => $email,
@@ -43,6 +54,7 @@ class AuthController extends Controller
             'api_token' => $token,
             'createdAt' => time()
         );
+
         if ($userId = $userModel->save($userData))
         {
             $emailData = array(

@@ -17,19 +17,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'auth',], function () {
+Route::group(['prefix' => 'auth'], function () {
     Route::post('register', 'AuthController@register');
     Route::post('login', 'AuthController@login');
     Route::post('verify', 'AuthController@verify');
-    Route::post('resend_verify_code', 'AuthController@resend_verify_code');
+    Route::put('resend_verify_code', 'AuthController@resend_verify_code');
 });
 
-Route::group(['prefix' => 'events',], function () {
+Route::group(['prefix' => 'users'], function () {
+    Route::post('invited_events', 'UsersController@invited_events');
+    Route::post('user_events', 'UsersController@user_events');
+});
+
+Route::group(['prefix' => 'events'], function () {
     Route::post('create', 'EventController@create');
 });
 
 
-Route::group(['prefix' => 'invitation',], function () {
+Route::group(['prefix' => 'invitation'], function () {
+    Route::post('invited_users', 'InvitationController@invited_users');
     Route::post('update', 'InvitationController@update');
 });
 
